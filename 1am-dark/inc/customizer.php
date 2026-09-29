@@ -11,7 +11,7 @@ function oneam_defaults() {
 	return array(
 		// Confirm the final warning wording against Health Canada requirements.
 		'oneam_topbar'        => 'WARNING: Vaping products contain nicotine, a highly addictive chemical.',
-		'oneam_intro_title'   => 'Loud after *dark.*',
+		'oneam_intro_title'   => 'After *1AM.*',
 		'oneam_intro_text'    => 'Slim HYBRID · 15 flavours · Wholesale only',
 		'oneam_video_mp4'     => '',
 		'oneam_video_youtube' => '',
@@ -20,7 +20,7 @@ function oneam_defaults() {
 		'oneam_about_text'    => '1AM is a wholesale-only vape brand for Canadian retail stores. We supply proven products and work only with approved retail partners.',
 		'oneam_about_url'     => '/about-us/',
 		'oneam_hello_title'   => "Slim\nHybrid",
-		'oneam_hello_head'    => 'Designed for *the night shift.*',
+		'oneam_hello_head'    => 'Small body. *Big flavour.*',
 		'oneam_vision_text'   => 'We want every approved Canadian retailer to have a simple, reliable line-up that customers ask for by name, with clear product information and fair wholesale pricing.',
 		'oneam_promise_text'  => 'Consistent products, honest specs and dependable shipping to the provinces where our products can be sold. We only work with verified retail partners.',
 		'oneam_device_title'  => "Made to *stand out.*",

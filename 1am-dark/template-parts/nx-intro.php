@@ -41,7 +41,6 @@ $words   = preg_split( '/\s+/u', trim( str_replace( "\n", ' ', oneam_opt( 'oneam
 		</h1>
 		<div class="nx-intro__btns">
 			<?php oneam_member_cta(); ?>
-			<a class="nx-link" href="#flavors"><span>Discover</span><i class="nx-circle" aria-hidden="true">&darr;</i></a>
 		</div>
 	</div>
 
@@ -64,10 +63,5 @@ $words   = preg_split( '/\s+/u', trim( str_replace( "\n", ' ', oneam_opt( 'oneam
 
 	<div class="nx-intro__foot">
 		<a class="nx-scroll" href="#hello"><i aria-hidden="true"></i><span>Scroll to explore</span></a>
-		<div class="nx-dots" role="tablist" aria-label="Choose a flavour">
-			<?php foreach ( $flavors as $i => $f ) : ?>
-				<button type="button" class="<?php echo 0 === $i ? 'is-active' : ''; ?>" data-idx="<?php echo (int) $i; ?>" style="<?php echo oneam_flavor_style( $f ); // phpcs:ignore ?>" aria-label="<?php echo esc_attr( $f['name'] ); ?>"></button>
-			<?php endforeach; ?>
-		</div>
 	</div>
 </section>

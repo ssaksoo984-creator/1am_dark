@@ -216,8 +216,8 @@
 		if (!root) return;
 		var dev = $('.nx-hello__device', root);
 		gsap.timeline({ scrollTrigger: { trigger: root, start: 'top 85%', end: 'bottom 30%', scrub: 1 } })
-			.fromTo(dev, { yPercent: 60, rotate: -70, opacity: 0 }, { yPercent: 0, rotate: 0, opacity: 1, ease: 'power2.out', duration: .6 }, 0)
-			.to(dev, { yPercent: -12, rotate: 8, ease: 'none', duration: .4 }, .6);
+			.fromTo(dev, { yPercent: 60, xPercent: 10, rotation: -70, opacity: 0 }, { yPercent: 0, rotation: -26, opacity: 1, ease: 'power2.out', duration: .6 }, 0)
+			.to(dev, { yPercent: -10, rotation: -16, ease: 'none', duration: .4 }, .6);
 		gsap.from($$('.nx-hello__words span', root), { xPercent: -12, opacity: 0, stagger: .08, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: root, start: 'top 75%' } });
 		gsap.from($$('.nx-hello__copy > :not(.nx-h2)', root), { y: 30, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.nx-hello__copy', start: 'top 80%' } });
 		gsap.fromTo($('.nx-num', root), { yPercent: 40 }, { yPercent: -40, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
@@ -275,7 +275,7 @@
 	(function () {
 		var root = $('#why');
 		if (!root) return;
-		gsap.fromTo($('.nx-features__art img', root), { scale: 1.08, xPercent: 4 }, { scale: 1, xPercent: 0, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
+		gsap.fromTo($('.nx-features__art img', root), { scale: 1.06 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
 		gsap.from($$('.nx-feat', root), { y: 60, opacity: 0, filter: 'blur(12px)', stagger: .12, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.nx-feats', start: 'top 80%' } });
 	})();
 
@@ -284,10 +284,12 @@
 		var root = $('#vision');
 		if (!root) return;
 		var f = $$('.nx-float', root);
+		gsap.set(f, { rotation: function (i) { return i ? 12 : -14; } });
 		f.forEach(function (el, i) {
-			gsap.to(el, { y: i ? -18 : 18, rotation: (i ? 12 : -14) + (i ? -3 : 3), duration: 3 + i, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+			gsap.to(el, { y: i ? -14 : 14, rotation: i ? 9 : -11, duration: 3 + i, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 		});
-		gsap.fromTo(f, { xPercent: function (i) { return i ? 60 : -60; }, opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power2.out', scrollTrigger: { trigger: root, start: 'top 80%', end: 'center center', scrub: 1 } });
+		gsap.fromTo($$('.nx-float-slot', root), { xPercent: function (i) { return i ? 60 : -60; }, opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power2.out', scrollTrigger: { trigger: root, start: 'top 80%', end: 'center center', scrub: 1 } });
+		ST.create({ trigger: root, start: 'top 60%', once: true, onEnter: function () { root.classList.add('is-lit'); } });
 		gsap.from($$('.nx-vision__text > *', root), { y: 30, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: root, start: 'top 70%' } });
 	})();
 
@@ -296,7 +298,6 @@
 		var root = $('#wholesale');
 		if (!root) return;
 		var title = $('[data-neon]', root);
-		gsap.fromTo('.nx-cta__bg img', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
 		gsap.fromTo('.nx-cta__line', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top 80%', end: 'center center', scrub: true } });
 		ST.create({ trigger: title, start: 'top 80%', once: true, onEnter: function () { flickerIn([title], { spread: 0 }); } });
 		gsap.set(title, { opacity: 0 });

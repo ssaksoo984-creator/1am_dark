@@ -250,6 +250,26 @@ function oneam_member_cta( $size = '' ) {
 	);
 }
 
+/**
+ * 헤더 오른쪽 버튼 — 로그인과 도매 가입을 하나로 (비회원은 내 계정 페이지: 로그인 + 가입)
+ * 나중에 가입 승인 플러그인을 쓰면 'oneam_header_cta' 필터로 주소·문구를 바꾸면 됩니다.
+ */
+function oneam_header_cta() {
+	$state = oneam_member_state();
+	$map   = array(
+		'guest'    => array( oneam_login_url(), 'Wholesale' ),
+		'pending'  => array( oneam_opt( 'oneam_pending_url' ) ?: oneam_login_url(), 'Under review' ),
+		'approved' => array( oneam_shop_url(), 'Shop wholesale' ),
+	);
+	list( $url, $label ) = apply_filters( 'oneam_header_cta', $map[ $state ], $state );
+	printf(
+		'<a class="btn btn--solid btn--sm" href="%s" data-state="%s"><span>%s &rarr;</span></a>',
+		esc_url( $url ),
+		esc_attr( $state ),
+		esc_html( $label )
+	);
+}
+
 /* ---------------------------------------------------------------------------
  * WooCommerce: 비공개 쇼핑몰
  * ------------------------------------------------------------------------- */

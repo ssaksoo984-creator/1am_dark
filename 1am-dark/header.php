@@ -40,9 +40,9 @@ $oneam_first   = $oneam_flavors[0];
 <div class="topbar" role="note"><p><?php echo esc_html( oneam_opt( 'oneam_topbar' ) ); ?></p></div>
 
 <header class="site-header" id="site-header">
-	<a class="site-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="1AM home">
-		<?php oneam_logo( 'white' ); ?>
-	</a>
+	<button class="nav-toggle" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+		<i></i><i></i>
+	</button>
 	<nav class="site-nav" id="site-nav" aria-label="Primary">
 		<?php
 		wp_nav_menu(
@@ -54,19 +54,13 @@ $oneam_first   = $oneam_flavors[0];
 			)
 		);
 		?>
-		<div class="site-nav__actions">
-			<?php $oneam_state = oneam_member_state(); ?>
-			<?php if ( 'guest' === $oneam_state ) : ?>
-				<a class="site-nav__login" href="<?php echo esc_url( oneam_login_url() ); ?>">Log in</a>
-			<?php elseif ( 'pending' === $oneam_state ) : ?>
-				<a class="site-nav__login" href="<?php echo esc_url( oneam_login_url() ); ?>">My account</a>
-			<?php endif; ?>
-			<?php oneam_member_cta( 'btn--sm' ); ?>
-		</div>
 	</nav>
-	<button class="nav-toggle" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
-		<i></i><i></i>
-	</button>
+	<a class="site-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="1AM home">
+		<?php oneam_logo( 'white' ); ?>
+	</a>
+	<div class="site-header__actions">
+		<?php oneam_header_cta(); ?>
+	</div>
 </header>
 
 <main id="main" class="site-main">

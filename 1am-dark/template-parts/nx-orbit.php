@@ -23,8 +23,8 @@ $points = apply_filters(
 		<div class="nx-orbit__stage">
 			<svg class="nx-orbit__ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" pathLength="1"></circle></svg>
 			<div class="nx-orbit__disc" aria-hidden="true"></div>
-			<img class="nx-orbit__dev nx-orbit__dev--a" src="<?php echo esc_url( $a['img'] ); ?>" alt="1AM Slim HYBRID" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $a ); // phpcs:ignore ?>">
-			<img class="nx-orbit__dev nx-orbit__dev--b" src="<?php echo esc_url( $b['img'] ); ?>" alt="" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $b ); // phpcs:ignore ?>">
+			<div class="nx-orbit__slot"><img class="nx-orbit__dev nx-orbit__dev--a" src="<?php echo esc_url( $a['img'] ); ?>" alt="1AM Slim HYBRID" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $a ); // phpcs:ignore ?>"></div>
+			<div class="nx-orbit__slot"><img class="nx-orbit__dev nx-orbit__dev--b" src="<?php echo esc_url( $b['img'] ); ?>" alt="" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $b ); // phpcs:ignore ?>"></div>
 			<ul class="nx-orbit__pts">
 				<?php foreach ( $points as $p ) : ?>
 					<li class="nx-pt<?php echo ( $p[2] > 0 && $p[2] < 180 ) ? '' : ' is-left'; ?>" style="--a:<?php echo (int) $p[2]; ?>deg;--pc:<?php echo esc_attr( $p[3] ); ?>">

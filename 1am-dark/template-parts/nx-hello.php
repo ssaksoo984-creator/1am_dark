@@ -7,6 +7,7 @@ $hero    = $flavors[ min( 4, count( $flavors ) - 1 ) ];
 $lines   = preg_split( '/\r?\n/', trim( oneam_opt( 'oneam_hello_title' ) ) );
 ?>
 <section class="nx-hello" id="hello" style="<?php echo oneam_flavor_style( $hero ); // phpcs:ignore ?>">
+	<canvas class="nx-smoke nx-smoke--soft" data-smoke="12" aria-hidden="true"></canvas>
 	<span class="nx-num" aria-hidden="true">01</span>
 	<div class="nx-hello__type" aria-hidden="true">
 		<div class="nx-hello__words">

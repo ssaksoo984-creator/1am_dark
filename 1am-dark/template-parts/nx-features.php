@@ -1,6 +1,6 @@
 <?php
 /**
- * 04 — Why stock 1AM: 번호 붙은 유리 카드 4개 + 네온 이미지 + 연기
+ * 04 — Why stock 1AM: 전체 배경 이미지 + 번호 붙은 유리 카드 4개 + 연기
  */
 $items = apply_filters(
 	'oneam_benefits',
@@ -17,7 +17,7 @@ $items = apply_filters(
 		<img src="<?php echo esc_url( oneam_asset( 'img/scene-lineup.webp' ) ); ?>" alt="" width="1926" height="817" loading="lazy">
 		<canvas class="nx-smoke" data-smoke="10"></canvas>
 	</div>
-	<span class="nx-num nx-num--right" aria-hidden="true">04</span>
+	<span class="nx-num nx-num--left" aria-hidden="true">04</span>
 	<div class="nx-features__body">
 		<h2 class="nx-h3">Why stock 1AM</h2>
 		<ol class="nx-feats">
