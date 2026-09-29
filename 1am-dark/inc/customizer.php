@@ -11,7 +11,7 @@ function oneam_defaults() {
 	return array(
 		// Confirm the final warning wording against Health Canada requirements.
 		'oneam_topbar'        => 'WARNING: Vaping products contain nicotine, a highly addictive chemical.',
-		'oneam_intro_title'   => 'Stocked for *retail.*',
+		'oneam_intro_title'   => 'Loud after *dark.*',
 		'oneam_intro_text'    => 'Slim HYBRID · 15 flavours · Wholesale only',
 		'oneam_video_mp4'     => '',
 		'oneam_video_youtube' => '',
@@ -19,6 +19,10 @@ function oneam_defaults() {
 		'oneam_about_title'   => 'A wholesale brand built for *Canadian retailers.*',
 		'oneam_about_text'    => '1AM is a wholesale-only vape brand for Canadian retail stores. We supply proven products and work only with approved retail partners.',
 		'oneam_about_url'     => '/about-us/',
+		'oneam_hello_title'   => "Slim\nHybrid",
+		'oneam_hello_head'    => 'Designed for *the night shift.*',
+		'oneam_vision_text'   => 'We want every approved Canadian retailer to have a simple, reliable line-up that customers ask for by name, with clear product information and fair wholesale pricing.',
+		'oneam_promise_text'  => 'Consistent products, honest specs and dependable shipping to the provinces where our products can be sold. We only work with verified retail partners.',
 		'oneam_device_title'  => "Slim outside.\n*Loud inside.*",
 		'oneam_spec_1_num'    => '15',
 		'oneam_spec_1_label'  => 'Flavours',
@@ -59,8 +63,8 @@ add_action(
 				'oneam_warning' => array( 'Footer warning', 'textarea' ),
 			) ),
 			'oneam_intro'   => array( 'Home video', array(
-				'oneam_video_mp4'     => array( 'MP4 video (recommended)', 'upload' ),
-				'oneam_video_poster'  => array( 'Poster image', 'upload' ),
+				'oneam_video_mp4'     => array( 'MP4 video (empty = neon image)', 'upload' ),
+				'oneam_video_poster'  => array( 'Background image (replaces the neon image)', 'upload' ),
 				'oneam_video_youtube' => array( 'Or YouTube URL', 'url' ),
 				'oneam_intro_title'   => array( 'Headline (one line, *word* = italic)', 'text' ),
 				'oneam_intro_text'    => array( 'Supporting text (short)', 'text' ),
@@ -69,6 +73,10 @@ add_action(
 				'oneam_about_title' => array( 'Headline (*word* = italic)', 'text' ),
 				'oneam_about_text'  => array( 'Text', 'textarea' ),
 				'oneam_about_url'   => array( 'About Us link', 'text' ),
+				'oneam_hello_title' => array( 'Big type behind the device (line break = new line)', 'textarea' ),
+				'oneam_hello_head'  => array( 'Statement headline (*word* = italic)', 'text' ),
+				'oneam_vision_text' => array( 'Our vision', 'textarea' ),
+				'oneam_promise_text' => array( 'Our promise', 'textarea' ),
 			) ),
 			'oneam_device'  => array( 'Device / Specs', array(
 				'oneam_device_title' => array( 'Headline (line break = new line, *word* = italic)', 'textarea' ),

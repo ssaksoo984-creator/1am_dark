@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ONEAM_VERSION', '1.2.0' );
+define( 'ONEAM_VERSION', '2.0.0' );
 
 function oneam_asset( $path ) {
 	return get_template_directory_uri() . '/assets/' . ltrim( $path, '/' );
@@ -39,6 +39,9 @@ add_action(
 	function () {
 		wp_enqueue_style( 'oneam-main', oneam_asset( 'css/main.css' ), array(), ONEAM_VERSION );
 		wp_enqueue_style( 'oneam-dark', oneam_asset( 'css/dark.css' ), array( 'oneam-main' ), ONEAM_VERSION );
+		if ( is_front_page() ) {
+			wp_enqueue_style( 'oneam-home', oneam_asset( 'css/home.css' ), array( 'oneam-dark' ), ONEAM_VERSION );
+		}
 
 		// 쇼핑몰(장바구니·결제·내 계정)에서는 부드러운 스크롤·커서를 끄고 가볍게
 		$shop = oneam_is_shop_area();
@@ -54,6 +57,9 @@ add_action(
 			$deps[] = 'lenis';
 		}
 		wp_enqueue_script( 'oneam-main', oneam_asset( 'js/main.js' ), $deps, ONEAM_VERSION, true );
+		if ( is_front_page() ) {
+			wp_enqueue_script( 'oneam-home', oneam_asset( 'js/home.js' ), array( 'oneam-main' ), ONEAM_VERSION, true );
+		}
 
 		wp_localize_script(
 			'oneam-main',

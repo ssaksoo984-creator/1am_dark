@@ -28,6 +28,7 @@ function esc_attr($s){ return htmlspecialchars((string)$s,ENT_QUOTES); } functio
 function language_attributes(){ echo 'lang="en-CA"'; } function bloginfo($k){ echo 'UTF-8'; } function get_bloginfo($k){ return '1AM'; }
 function body_class($c=''){ echo 'class="home '.$c.'"'; } function wp_body_open(){}
 function has_custom_logo(){ return false; }
+function is_front_page(){ return $GLOBALS['TPL']==='front-page.php'; } function wp_strip_all_tags($s){ return strip_tags($s); }
 function wp_enqueue_style($h,$src){ $GLOBALS['styles'][]=$src; }
 function wp_enqueue_script($h,$src){ $GLOBALS['scripts'][$h]=$src; }
 function wp_localize_script($h,$n,$d){ $GLOBALS['l10n'][$n]=$d; }

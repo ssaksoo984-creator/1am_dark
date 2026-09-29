@@ -1,7 +1,10 @@
-Home video (used automatically when present)
+# 첫 화면 영상
 
-- brand.mp4      — 1080p, web-compressed (H.264, faststart)
-- brand-720.mp4  — 720p version for phones
-- brand.jpg      — poster frame shown while the video loads
+지금은 영상이 없어서 첫 화면 배경으로 `assets/img/neon-scene.webp` (네온 이미지)가 나옵니다.
 
-A video chosen in Customize > 1AM Settings > Home video takes priority over these files.
+영상이 준비되면 둘 중 하나로 넣으세요.
+
+1. **관리자에서 (추천)**: 외모 > 사용자 정의하기 > 1AM Settings > Home video > MP4 video 업로드
+2. **테마 파일로**: 이 폴더에 `brand.mp4` 로 넣으면 자동으로 사용 (포스터는 네온 이미지가 그대로 사용됨)
+
+권장: 1920×1080 이하, H.264 MP4, 10MB 이하, 소리 없음(자동재생은 음소거 상태에서만 됨).

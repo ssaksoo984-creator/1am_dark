@@ -15,7 +15,7 @@
 	var lite = !!cfg.lite; // 쇼핑몰(장바구니·결제·내 계정) 페이지
 	var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-	if (!gsap) { body.classList.remove('is-loading'); return; }
+	if (!gsap) { body.classList.remove('is-loading'); window.ONEAM_READY = true; return; }
 	gsap.registerPlugin(ST);
 
 	var store = {
@@ -276,7 +276,7 @@
 	/* ------------------------------------------------------------------ Lab */
 	function lab() {
 		var root = $('#products');
-		if (!root) return;
+		if (!root || !$('.lab__track', root)) return;
 		var track = $('.lab__track', root);
 		var panels = $$('.lab__panel', root);
 		var bg = $('.lab__bg', root);
@@ -373,7 +373,7 @@
 	/* --------------------------------------------------------------- Device */
 	function device() {
 		var root = $('#device');
-		if (!root) return;
+		if (!root || !$('.device__pin', root)) return;
 		var imgs = $$('.device__stack img', root);
 		var tl = gsap.timeline({
 			scrollTrigger: { trigger: root, start: 'top top', end: '+=250%', pin: '.device__pin', scrub: 1 }
@@ -394,7 +394,7 @@
 	/* ------------------------------------------------------------------ CTA */
 	function cta() {
 		var root = $('#wholesale');
-		if (!root) return;
+		if (!root || !$('[data-fill]', root)) return;
 		var imgs = $$('.cta__fan img', root);
 		gsap.fromTo(imgs,
 			{ rotate: 0, x: 0, y: 80 },
@@ -574,6 +574,8 @@
 			body.classList.remove('is-loading');
 			h.intro();
 			filmIntro();
+			window.ONEAM_READY = true;
+			document.dispatchEvent(new CustomEvent('oneam:ready'));
 			ST.refresh();
 		});
 
