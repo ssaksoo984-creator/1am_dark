@@ -90,6 +90,7 @@
 .nx-kicker .dot { color: var(--c1); }
 
 .nx-smoke { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+.nx-hello .nx-smoke { opacity: 1; mix-blend-mode: screen; }
 .nx-smoke--soft, .nx-features .nx-smoke {
 	-webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent);
 	mask-image: radial-gradient(closest-side, #000 55%, transparent);
@@ -277,8 +278,6 @@
 }
 .nx-hello__type { position: relative; display: grid; place-items: center start; min-height: clamp(260px, 30vw, 460px); }
 .nx-hello__words {
-	position: relative;
-	z-index: 1;
 	grid-area: 1 / 1;
 	display: grid;
 	font-size: clamp(64px, 11vw, 190px);
@@ -290,12 +289,14 @@
 	color: #fff;
 }
 /* 아랫줄 글자는 윤곽선만 → 제품이 두 줄 사이를 가로지름 */
+.nx-hello__words span { position: relative; z-index: 0; }
+.nx-hello__words span:last-child { z-index: 2; }
 .nx-hello__words span:last-child { color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .7); }
 .nx-hello__device {
 	grid-area: 1 / 1;
 	justify-self: center;
 	position: relative;
-	z-index: 0;
+	z-index: 1;
 	height: clamp(300px, 36vw, 560px);
 	width: auto;
 	filter: drop-shadow(0 0 12px color-mix(in srgb, var(--c1) 85%, transparent)) drop-shadow(0 0 50px color-mix(in srgb, var(--c1) 55%, transparent));
@@ -493,23 +494,21 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	align-items: center;
-	min-height: 46vw;
-	padding: clamp(50px, 5vw, 80px) var(--gutter);
+	padding: clamp(90px, 10vw, 150px) var(--gutter);
 	overflow: hidden;
 	isolation: isolate;
 }
-.nx-features__art { position: absolute; inset: 0; z-index: -1; }
-.nx-features__art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
-.nx-features__art::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background:
-		linear-gradient(90deg, rgba(5, 4, 9, .92) 0%, rgba(5, 4, 9, .6) 38%, rgba(5, 4, 9, .05) 70%),
-		linear-gradient(180deg, #050409 0%, rgba(5, 4, 9, 0) 18%, rgba(5, 4, 9, 0) 82%, #050409 100%);
+.nx-features__art { position: absolute; inset: 4% -4% 4% 36%; z-index: -1; }
+.nx-features__art img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 58% 60%;
+	-webkit-mask-image: radial-gradient(closest-side at 55% 50%, #000 55%, transparent 100%);
+	mask-image: radial-gradient(closest-side at 55% 50%, #000 55%, transparent 100%);
+	opacity: .9;
 }
-.nx-features .nx-num { top: clamp(50px, 6vw, 90px); }
-.nx-features__body { padding-top: clamp(60px, 7vw, 120px); }
+.nx-features .nx-num { top: clamp(60px, 7vw, 100px); }
 .nx-features__body { position: relative; display: grid; gap: 28px; }
 .nx-feats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .nx-feat { display: grid; align-content: start; gap: 10px; padding: 20px; min-height: 210px; transition: box-shadow .5s var(--ease), transform .5s var(--ease); }
@@ -533,19 +532,30 @@
 .nx-feat p { margin: 0; font-size: 13px; line-height: 1.6; color: var(--muted); }
 @media (max-width: 900px) {
 	.nx-features { grid-template-columns: 1fr; }
-	.nx-features__art img { object-position: 70% 50%; opacity: .7; }
+	.nx-features__art { inset: 0; opacity: .5; }
 }
 @media (max-width: 520px) { .nx-feats { grid-template-columns: 1fr; } .nx-feat { min-height: 0; } }
 
 /* ---------- 05 VISION ---------- */
+/* 05 + Stock 1AM 을 하나의 배경(네온관 · 연기 · 보라 바닥광)으로 이어줌 */
+.nx-finale { position: relative; overflow: hidden; isolation: isolate; }
+.nx-finale__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.nx-finale__bg .nx-smoke { -webkit-mask-image: linear-gradient(180deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(180deg, transparent, #000 15%, #000 85%, transparent); }
+.nx-finale__glow {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(40% 30% at 72% 42%, rgba(155, 60, 255, .2), transparent 70%),
+		radial-gradient(70% 35% at 50% 100%, rgba(155, 60, 255, .32), transparent 70%),
+		radial-gradient(30% 25% at 20% 75%, rgba(30, 167, 255, .12), transparent 70%);
+}
 .nx-vision {
 	position: relative;
 	display: grid;
 	grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
 	align-items: center;
 	gap: 40px;
-	padding: clamp(110px, 12vw, 180px) var(--gutter) clamp(60px, 7vw, 100px);
-	overflow: hidden;
+	padding: clamp(110px, 12vw, 180px) var(--gutter) clamp(20px, 3vw, 40px);
 }
 .nx-vision .nx-num { top: clamp(30px, 4vw, 60px); }
 .nx-vision__text { position: relative; display: grid; gap: 28px; justify-items: start; padding-top: clamp(40px, 6vw, 100px); }
@@ -560,31 +570,29 @@
 	width: auto;
 	filter: drop-shadow(0 0 12px color-mix(in srgb, var(--c1) 80%, transparent)) drop-shadow(0 0 50px color-mix(in srgb, var(--c1) 50%, transparent));
 }
-/* 뒤쪽 네온관 두 줄 (깜빡이며 켜짐) */
+/* 뒤쪽 네온관 두 줄 — 05 부터 Stock 1AM 까지 길게 이어짐 */
 .nx-tube {
 	position: absolute;
-	z-index: -1;
-	top: -10%;
+	top: -5%;
 	width: 4px;
-	height: 120%;
+	height: 110%;
 	border-radius: 4px;
 	opacity: 0;
+	transform-origin: 50% 0;
 }
-.nx-tube--cyan { left: 30%; rotate: 22deg; background: #bff7ff; box-shadow: 0 0 8px #3fe0ff, 0 0 26px #1ea7ff, 0 0 70px #1ea7ff, 0 0 140px rgba(30, 167, 255, .5); }
-.nx-tube--pink { left: 70%; rotate: -22deg; background: #ffd6ec; box-shadow: 0 0 8px #ff4fa3, 0 0 26px #ff2e88, 0 0 70px #ff2e88, 0 0 140px rgba(255, 46, 136, .5); }
-.nx-vision.is-lit .nx-tube { animation: nx-tube-on 1.2s steps(1, end) forwards, nx-tube-hum 4s ease-in-out 1.2s infinite; }
-.nx-vision.is-lit .nx-tube--pink { animation-delay: .35s, 1.55s; }
+.nx-tube--cyan { left: 66%; rotate: -4deg; background: #bff7ff; box-shadow: 0 0 8px #3fe0ff, 0 0 26px #1ea7ff, 0 0 70px #1ea7ff, 0 0 140px rgba(30, 167, 255, .5); }
+.nx-tube--pink { left: 90%; rotate: 4deg; background: #ffd6ec; box-shadow: 0 0 8px #ff4fa3, 0 0 26px #ff2e88, 0 0 70px #ff2e88, 0 0 140px rgba(255, 46, 136, .5); }
+.nx-finale.is-lit .nx-tube { animation: nx-tube-on 1.2s steps(1, end) forwards, nx-tube-hum 4s ease-in-out 1.2s infinite; }
+.nx-finale.is-lit .nx-tube--pink { animation-delay: .35s, 1.55s; }
 @keyframes nx-tube-on { 0% { opacity: 0; } 10% { opacity: .9; } 18% { opacity: .1; } 30% { opacity: .9; } 38% { opacity: .2; } 55%, 100% { opacity: 1; } }
 @keyframes nx-tube-hum { 0%, 100% { opacity: 1; } 50% { opacity: .82; } 52% { opacity: .55; } 54% { opacity: .9; } }
-.nx-vision::before {
-	content: "";
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: 60%;
-	height: 40%;
-	background: radial-gradient(50% 50% at 50% 100%, rgba(155, 60, 255, .22), transparent 70%);
-	pointer-events: none;
+@media (max-width: 800px) {
+	.nx-tube--cyan { left: 8%; rotate: -2deg; }
+	.nx-tube--pink { left: 92%; rotate: 2deg; }
+	.nx-tube { opacity: 0; }
+	.nx-finale.is-lit .nx-tube { animation-name: nx-tube-on-dim, nx-tube-hum-dim; }
+	@keyframes nx-tube-on-dim { 0% { opacity: 0; } 10% { opacity: .5; } 18% { opacity: .1; } 55%, 100% { opacity: .5; } }
+	@keyframes nx-tube-hum-dim { 0%, 100% { opacity: .5; } 52% { opacity: .3; } }
 }
 @media (max-width: 800px) {
 	.nx-vision { grid-template-columns: 1fr; }
@@ -595,7 +603,6 @@
 /* ---------- CTA ---------- */
 .nx-cta {
 	position: relative;
-	isolation: isolate;
 	display: grid;
 	justify-items: center;
 	gap: 26px;

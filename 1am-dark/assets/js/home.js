@@ -24,6 +24,7 @@
 		if (!ctx) return;
 		var host = canvas.parentElement;
 		var n = +canvas.dataset.smoke || 10;
+		var strength = +canvas.dataset.strength || 1;
 		var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 		var w = 0, h = 0, parts = [], running = false, color = '#9b3cff';
 
@@ -49,7 +50,7 @@
 			p.r = (.25 + Math.random() * .45) * Math.max(w, h) * .5;
 			p.vx = (Math.random() - .5) * 12;
 			p.vy = -(6 + Math.random() * 14);
-			p.a = .05 + Math.random() * .09;
+			p.a = Math.min(.5, (.05 + Math.random() * .09) * strength);
 			p.rot = Math.random() * Math.PI;
 			p.vr = (Math.random() - .5) * .08;
 			p.tint = Math.random() < .5;
@@ -275,8 +276,8 @@
 	(function () {
 		var root = $('#why');
 		if (!root) return;
-		gsap.fromTo($('.nx-features__art img', root), { scale: 1.06 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
-		gsap.from($$('.nx-feat', root), { y: 60, opacity: 0, filter: 'blur(12px)', stagger: .12, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.nx-feats', start: 'top 80%' } });
+		gsap.fromTo($('.nx-features__art img', root), { scale: 1.1 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
+		gsap.from($$('.nx-feat', root), { y: 50, opacity: 0, stagger: .08, duration: .9, ease: 'expo.out', clearProps: 'transform,opacity', scrollTrigger: { trigger: '.nx-feats', start: 'top 85%' } });
 	})();
 
 	/* ---------------------------------------------------------- 05 Vision */
@@ -289,7 +290,8 @@
 			gsap.to(el, { y: i ? -14 : 14, rotation: i ? 9 : -11, duration: 3 + i, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 		});
 		gsap.fromTo($$('.nx-float-slot', root), { xPercent: function (i) { return i ? 60 : -60; }, opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power2.out', scrollTrigger: { trigger: root, start: 'top 80%', end: 'center center', scrub: 1 } });
-		ST.create({ trigger: root, start: 'top 60%', once: true, onEnter: function () { root.classList.add('is-lit'); } });
+		var finale = $('#finale') || root;
+		ST.create({ trigger: root, start: 'top 60%', once: true, onEnter: function () { finale.classList.add('is-lit'); } });
 		gsap.from($$('.nx-vision__text > *', root), { y: 30, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: root, start: 'top 70%' } });
 	})();
 

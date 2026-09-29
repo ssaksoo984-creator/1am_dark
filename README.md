@@ -11,15 +11,15 @@
 |---|---|---|
 | – | 떠 있는 유리 알약 헤더 (메뉴 왼쪽 · 로고 가운데 · `Wholesale` 버튼 오른쪽) | 스크롤 내리면 숨김. 비회원 `Wholesale` → 내 계정(로그인·가입), 승인 대기 `Under review`, 승인 `Shop wholesale` (`oneam_header_cta` 필터로 변경) |
 | 첫 화면 | 네온 이미지 전체 배경 + 아래쪽 제목(After 1AM.) + 오른쪽 **유리 카드 맛 슬라이더** | 제목이 네온사인처럼 깜빡이며 켜짐, 배경 천천히 줌인·마우스 패럴랙스, 연기, 카드 속 제품이 3D 로 뒤집히며 교체 (자동 넘김, 화살표). 모바일은 가운데 정렬 |
-| 01 | SLIM / HYBRID 큰 글자 + 제품이 가로지름 + 소개 (Small body. Big flavour.) | 스크롤에 맞춰 제품이 회전하며 올라옴, 배경 연기 |
+| 01 | SLIM(제품 뒤) / HYBRID(제품 앞) 큰 글자 + 소개 (Small body. Big flavour.) | 스크롤에 맞춰 제품이 회전하며 올라옴, 배경 연기 |
 | – | 15 flavours 배너 (맛 전체 이미지) | 스크롤 패럴랙스, 숫자 카운트, 상품 페이지로 이동 |
 | 02 | 1AM 공통 특징 궤도 다이어그램 (Sleek design · Many flavours · Lightweight) | 고정된 채 스크롤하면 원이 그려지고 제품이 벌어지고 점이 하나씩 켜짐, 스펙 숫자 카운트 |
 | 03 | 상품 3종 유리 카드 | 테두리 네온이 회전, 마우스 3D 기울기 |
-| 04 | Why stock 1AM 번호 카드 4개 + 제품 라인업 전체 배경 이미지 + 연기 | 블러에서 선명하게 등장 |
-| 05 | Our vision / Our promise + 네온관 배경 앞 떠 있는 제품 두 개 | 네온관이 깜빡이며 켜지고 제품이 둥둥 떠다님 |
+| 04 | Why stock 1AM 번호 카드 4개 + 오른쪽 네온 이미지 + 연기 | 블러에서 선명하게 등장 |
+| 05 | Our vision / Our promise + 떠 있는 제품 두 개 | 네온관이 깜빡이며 켜지고 제품이 둥둥 떠다님. 네온관·연기·보라 바닥광 배경이 마지막 Stock 1AM 까지 이어짐 (`.nx-finale`) |
 | 끝 | Stock 1AM. | 네온사인처럼 깜빡이며 켜짐 |
 
-- 컨셉 이미지: `assets/img/neon-scene.webp`(첫 화면) · `scene-flatlay.webp`(맛 배너) · `scene-lineup.webp`(04)
+- 컨셉 이미지: `assets/img/neon-scene.webp`(첫 화면) · `scene-flatlay.webp`(맛 배너) · 04 도 `neon-scene.webp`
 - 02 특징 문구는 `template-parts/nx-orbit.php` 또는 `oneam_orbit_points` 필터로 수정
 - 메인 전용 파일: `template-parts/nx-*.php`, `assets/css/home.css`, `assets/js/home.js`
 - 공통 다크 스킨: `assets/css/dark.css` (상품·서브 페이지에도 적용)
