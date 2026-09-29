@@ -23,7 +23,7 @@ function oneam_defaults() {
 		'oneam_hello_head'    => 'Designed for *the night shift.*',
 		'oneam_vision_text'   => 'We want every approved Canadian retailer to have a simple, reliable line-up that customers ask for by name, with clear product information and fair wholesale pricing.',
 		'oneam_promise_text'  => 'Consistent products, honest specs and dependable shipping to the provinces where our products can be sold. We only work with verified retail partners.',
-		'oneam_device_title'  => "Slim outside.\n*Loud inside.*",
+		'oneam_device_title'  => "Made to *stand out.*",
 		'oneam_spec_1_num'    => '15',
 		'oneam_spec_1_label'  => 'Flavours',
 		'oneam_spec_2_num'    => '2',

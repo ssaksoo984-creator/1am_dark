@@ -12,13 +12,15 @@
 | – | 떠 있는 유리 알약 헤더 | 스크롤 내리면 숨김 |
 | 첫 화면 | 네온 이미지 전체 배경 + 큰 제목 + 오른쪽 **유리 카드 맛 슬라이더** | 제목이 네온사인처럼 깜빡이며 켜짐, 배경 천천히 줌인·마우스 패럴랙스, 연기, 카드 속 제품이 3D 로 뒤집히며 교체 (자동 넘김, 화살표·점) |
 | 01 | SLIM / HYBRID 큰 글자 + 제품이 가로지름 + 소개 | 스크롤에 맞춰 제품이 회전하며 올라옴 |
-| – | What's your colour? 15개 맛 타일 | 네온관이 하나씩 켜지듯 등장, 마우스 따라 스포트라이트 |
-| 02 | 궤도 다이어그램 (점선 원 + 특징 점 5개 + 제품 두 개 V자) | 고정된 채 스크롤하면 원이 그려지고 제품이 벌어지고 점이 하나씩 켜짐, 스펙 숫자 카운트 |
+| – | 15 flavours 배너 (맛 전체 이미지) | 스크롤 패럴랙스, 숫자 카운트, 상품 페이지로 이동 |
+| 02 | 1AM 공통 특징 궤도 다이어그램 (Sleek design · Many flavours · Lightweight) | 고정된 채 스크롤하면 원이 그려지고 제품이 벌어지고 점이 하나씩 켜짐, 스펙 숫자 카운트 |
 | 03 | 상품 3종 유리 카드 | 테두리 네온이 회전, 마우스 3D 기울기 |
-| 04 | Why stock 1AM 번호 카드 4개 + 네온 이미지 + 연기 | 블러에서 선명하게 등장 |
+| 04 | Why stock 1AM 번호 카드 4개 + 제품 라인업 이미지 + 연기 | 블러에서 선명하게 등장 |
 | 05 | Our vision / Our promise + 떠 있는 제품 두 개 | 둥둥 떠다님 |
-| 끝 | Stock 1AM. | 네온사인처럼 깜빡이며 켜짐 |
+| 끝 | Stock 1AM. (기울어진 제품 이미지 배경) | 네온사인처럼 깜빡이며 켜짐 |
 
+- 컨셉 이미지: `assets/img/neon-scene.webp`(첫 화면) · `scene-flatlay.webp`(맛 배너) · `scene-lineup.webp`(04) · `scene-tilt.webp`(마지막)
+- 02 특징 문구는 `template-parts/nx-orbit.php` 또는 `oneam_orbit_points` 필터로 수정
 - 메인 전용 파일: `template-parts/nx-*.php`, `assets/css/home.css`, `assets/js/home.js`
 - 공통 다크 스킨: `assets/css/dark.css` (상품·서브 페이지에도 적용)
 - **첫 화면 배경**: 지금은 `assets/img/neon-scene.webp` (보내준 네온 이미지). 영상이 완성되면 사용자 정의하기 > 1AM Settings > Home video 에 MP4 업로드 → 자동으로 영상으로 바뀜 (`assets/video/README.md` 참고)

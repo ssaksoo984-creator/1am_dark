@@ -14,7 +14,7 @@ $items = apply_filters(
 ?>
 <section class="nx-features" id="why">
 	<div class="nx-features__art" aria-hidden="true">
-		<img src="<?php echo esc_url( oneam_asset( 'img/neon-scene.webp' ) ); ?>" alt="" width="1672" height="940" loading="lazy">
+		<img src="<?php echo esc_url( oneam_asset( 'img/scene-lineup.webp' ) ); ?>" alt="" width="1926" height="817" loading="lazy">
 		<canvas class="nx-smoke" data-smoke="10"></canvas>
 	</div>
 	<span class="nx-num nx-num--right" aria-hidden="true">04</span>

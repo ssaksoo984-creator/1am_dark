@@ -223,28 +223,12 @@
 		gsap.fromTo($('.nx-num', root), { yPercent: 40 }, { yPercent: -40, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
 	})();
 
-	/* ---------------------------------------------------------- 맛 타일 */
+	/* ------------------------------------------------------------ 맛 배너 */
 	(function () {
-		var tiles = $$('.nx-tile');
-		if (!tiles.length) return;
-		// 네온관이 하나씩 켜지듯 (깜빡이며)
-		ST.create({
-			trigger: '.nx-tiles', start: 'top 80%', once: true,
-			onEnter: function () {
-				gsap.set(tiles, { opacity: 1 });
-				flickerIn(tiles.map(function (t) { return $('.nx-tile__img', t); }), { spread: 1.1 });
-				gsap.from(tiles, { y: 40, duration: 1, stagger: { each: .04, from: 'random' }, ease: 'expo.out' });
-			}
-		});
-		gsap.set(tiles, { opacity: 0 });
-		tiles.forEach(function (t) {
-			var a = $('a', t);
-			a.addEventListener('pointermove', function (e) {
-				var r = a.getBoundingClientRect();
-				a.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-				a.style.setProperty('--my', (e.clientY - r.top) + 'px');
-			});
-		});
+		var root = $('#flavors');
+		if (!root) return;
+		gsap.fromTo($('.nx-banner__media img', root), { yPercent: -12, scale: 1.08 }, { yPercent: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
+		gsap.from($$('.nx-banner__copy > *', root), { y: 30, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: root, start: 'top 60%' } });
 	})();
 
 	/* ------------------------------------------------------------ 02 Orbit */
@@ -291,7 +275,7 @@
 	(function () {
 		var root = $('#why');
 		if (!root) return;
-		gsap.fromTo($('.nx-features__art img', root), { scale: 1.2, xPercent: 6 }, { scale: 1, xPercent: 0, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
+		gsap.fromTo($('.nx-features__art img', root), { scale: 1.08, xPercent: 4 }, { scale: 1, xPercent: 0, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
 		gsap.from($$('.nx-feat', root), { y: 60, opacity: 0, filter: 'blur(12px)', stagger: .12, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.nx-feats', start: 'top 80%' } });
 	})();
 
@@ -312,6 +296,7 @@
 		var root = $('#wholesale');
 		if (!root) return;
 		var title = $('[data-neon]', root);
+		gsap.fromTo('.nx-cta__bg img', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: true } });
 		gsap.fromTo('.nx-cta__line', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: root, start: 'top 80%', end: 'center center', scrub: true } });
 		ST.create({ trigger: title, start: 'top 80%', once: true, onEnter: function () { flickerIn([title], { spread: 0 }); } });
 		gsap.set(title, { opacity: 0 });

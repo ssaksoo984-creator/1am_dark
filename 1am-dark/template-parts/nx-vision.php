@@ -22,7 +22,6 @@ $pair    = array( $flavors[ min( 1, count( $flavors ) - 1 ) ], $flavors[ min( 11
 		<a class="nx-link" href="<?php echo esc_url( oneam_opt( 'oneam_about_url' ) ); ?>"><span>About us</span><i class="nx-circle" aria-hidden="true">&rarr;</i></a>
 	</div>
 	<div class="nx-vision__art" aria-hidden="true">
-		<canvas class="nx-smoke" data-smoke="8"></canvas>
 		<?php foreach ( $pair as $i => $f ) : ?>
 			<img class="nx-float nx-float--<?php echo (int) $i + 1; ?>" src="<?php echo esc_url( $f['img'] ); ?>" alt="" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $f ); // phpcs:ignore ?>">
 		<?php endforeach; ?>

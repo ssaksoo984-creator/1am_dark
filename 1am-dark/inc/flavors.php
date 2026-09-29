@@ -87,7 +87,7 @@ function oneam_get_flavors() {
 				'c2'   => $f[4],
 				'img'  => oneam_asset( 'img/flavors/' . $f[1] . '.webp' ),
 				'desc' => $f[5],
-				'url'  => home_url( '/#flavors' ),
+				'url'  => home_url( '/#products' ),
 				'line' => 'slim-hybrid',
 			);
 		}

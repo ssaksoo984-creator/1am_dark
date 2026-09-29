@@ -1,19 +1,18 @@
 <?php
 /**
- * 02 — 궤도 다이어그램: 점선 원이 그려지고, 두 디바이스가 V 자로 벌어지며, 특징 점이 하나씩 켜짐
+ * 02 — 1AM 제품 공통 특징 (디자인 · 다양한 맛 · 가벼움)
+ * 점선 원이 그려지고, 두 디바이스가 V 자로 벌어지며, 특징 점이 하나씩 켜짐
  */
 $flavors = oneam_get_flavors();
 $a       = $flavors[0];
 $b       = $flavors[ min( 3, count( $flavors ) - 1 ) ];
-// [라벨, 각도(deg, 12시 = 0), 색]
+// [제목, 설명, 각도(deg, 12시 = 0), 색] — 'oneam_orbit_points' 필터로 교체 가능
 $points = apply_filters(
 	'oneam_orbit_points',
 	array(
-		array( 'Crystal shell', -38, '#1ea7ff' ),
-		array( 'Gradient core', 42, '#ff8a1f' ),
-		array( 'Soft mouthpiece', 100, '#b6ff3b' ),
-		array( '2ml e-liquid', 150, '#8b8b9a' ),
-		array( 'Slim HYBRID body', -118, '#d23cff' ),
+		array( 'Sleek design', 'Slim, clear and made to stand out on the shelf.', -52, '#1ea7ff' ),
+		array( 'Many flavours', 'A wide range, from ice to fruit to sweet.', 60, '#ff2e88' ),
+		array( 'Lightweight', 'Easy to carry, light in the hand.', 170, '#b6ff3b' ),
 	)
 );
 ?>
@@ -28,12 +27,17 @@ $points = apply_filters(
 			<img class="nx-orbit__dev nx-orbit__dev--b" src="<?php echo esc_url( $b['img'] ); ?>" alt="" width="246" height="1400" loading="lazy" style="<?php echo oneam_flavor_style( $b ); // phpcs:ignore ?>">
 			<ul class="nx-orbit__pts">
 				<?php foreach ( $points as $p ) : ?>
-					<li class="nx-pt<?php echo ( $p[1] > 0 && $p[1] < 180 ) ? '' : ' is-left'; ?>" style="--a:<?php echo (int) $p[1]; ?>deg;--pc:<?php echo esc_attr( $p[2] ); ?>">
-						<i></i><span><?php echo esc_html( $p[0] ); ?></span>
+					<li class="nx-pt<?php echo ( $p[2] > 0 && $p[2] < 180 ) ? '' : ' is-left'; ?>" style="--a:<?php echo (int) $p[2]; ?>deg;--pc:<?php echo esc_attr( $p[3] ); ?>">
+						<i></i><span><b><?php echo esc_html( $p[0] ); ?></b><?php echo esc_html( $p[1] ); ?></span>
 					</li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
+		<ul class="nx-orbit__list">
+			<?php foreach ( $points as $p ) : ?>
+				<li style="--pc:<?php echo esc_attr( $p[3] ); ?>"><i></i><b><?php echo esc_html( $p[0] ); ?></b><span><?php echo esc_html( $p[1] ); ?></span></li>
+			<?php endforeach; ?>
+		</ul>
 		<dl class="nx-orbit__specs">
 			<?php for ( $n = 1; $n <= 3; $n++ ) : ?>
 				<div>
