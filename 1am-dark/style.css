@@ -1,0 +1,14 @@
+/*
+Theme Name: 1AM Dark
+Theme URI: https://example.com/1am
+Author: 1AM
+Description: 1AM Slim HYBRID 브랜드 사이트 다크 버전 — 다크 + 네온 글로우 & 인터랙션 (GSAP ScrollTrigger + Lenis). 맛(Flavor)은 관리자 > Flavors 에서 관리합니다.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: oneam
+*/
+
+/* 실제 스타일은 assets/css/main.css + assets/css/dark.css(다크·네온 덮어쓰기) 에 있습니다. */
